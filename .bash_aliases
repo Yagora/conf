@@ -1,0 +1,7 @@
+alias killssh='rm -f /home/tcharon/.ssh/known_hosts'
+alias rm='rm -i'
+alias open='gnome-open'
+alias gwip='git add -A; git ls-files --deleted -z | xargs -0 git rm; git commit -m "--wip--"'
+alias gunwip='git log -n 1 | grep -q -c "\-\-wip\-\-" && git reset HEAD~1'
+alias 'node-debug'='npm stop; npm run-script debug; node-inspector --web-port=8889 --hidden node_modules/  --no-preload'
+alias meteo='curl -4 http://wttr.in/Lyon'
