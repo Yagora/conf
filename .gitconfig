@@ -1,0 +1,40 @@
+[user]
+  name = Tanguy Charon
+  email = tcharon@arkoon.dev
+	signingkey = 881422CB
+
+[core]
+  editor = vim
+
+[alias]
+  co = checkout
+  ci = commit
+  br = branch
+  st = status
+  a  = add
+  pure = pull --stat --log
+  # log with graph
+  lg = log --graph --pretty=format:'%Cred%h%Creset %Cgreen(%ci)%Creset %s %C(bold blue)<%an>%Creset%C(yellow)%d%Creset'
+  # short log 
+  l = log --pretty=format:'%Cred%h%Creset %Cgreen(%ci)%Creset %s %C(blue)<%an>%C(yellow)%d%Creset'
+  # lga = lg --all | la = l --all
+  lga = log --graph --pretty=format:'%Cred%h%Creset %Cgreen(%ci)%Creset %s %C(bold blue)<%an>%Creset%C(yellow)%d' --all
+  #la = log --pretty=format:'%Cred%h%Creset %Cgreen(%ci)%C(yellow)%d%Creset %s %C(blue)<%an>%Creset' --abbrev-commit --all
+  # log with diff
+  ld = log --pretty=format:'%C(bold magenta)Commit:     %C(bold magenta)%H\n%C(bold blue)Author:     %an <%aE>\n%C(bold blue)AuthorDate: %ai (%ar)\n%C(bold blue)Commit:     %cn <%cE>\n%C(bold blue)CommitDate: %ci (%cr)\n%C(reset)Parent:     %P\nTree:       %T\n\n\t%C(ul bold red)%s\n%+b\n%Creset' -p
+	add = add -p
+	dc = diff --cached
+	pouf = push --force-with-lease
+
+[color]
+  ui = auto
+[hooks]
+	showrev = "git show -C %s; echo"
+#[push]
+#	default = simple
+[push]
+	default = current
+[commit]
+	gpgsign = false
+[pull]
+	rebase = preserve
