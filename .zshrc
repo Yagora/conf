@@ -55,7 +55,7 @@ if [[ "${USER}" == "root" ]]; then
     ZGEN_AUTOLOAD_COMPINIT=false
 fi
 
-source ~/conf/zgen/zgen.zsh
+source ~/.zgen/zgen.zsh
 source ~/.bashrc
 if ! zgen saved; then
     # zgen will load oh-my-zsh and download it if required
