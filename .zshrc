@@ -97,6 +97,8 @@ setopt histnostore
 # Remove superfluous blanks from each command line being added to the history list.
 setopt histreduceblanks
 unsetopt share_history
+# Remove auto correction
+unsetopt correct_all
 
 export NVM_DIR="/home/tcharon/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
