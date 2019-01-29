@@ -70,6 +70,7 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/grunt
     zgen oh-my-zsh plugins/nvm
     zgen oh-my-zsh plugins/debian
+    zgen oh-my-zsh plugins/grunt
 #    zgen oh-my-zsh plugins/emacs
     
     # https://github.com/zsh-users/zsh-completions
