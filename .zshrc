@@ -64,6 +64,7 @@ if ! zgen saved; then
     # list of plugins from zsh I use
     # see https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins
     zgen oh-my-zsh plugins/git
+    zgen oh-my-zsh plugins/kubectl
     zgen oh-my-zsh plugins/npm
     zgen oh-my-zsh plugins/sudo
     zgen oh-my-zsh plugins/man
@@ -100,6 +101,7 @@ setopt histreduceblanks
 unsetopt share_history
 # Remove auto correction
 unsetopt correct_all
-
+export PATH=$PATH:/home/$USER/.local/bin/
+export AWS_PROFILE=271755284775_DCP_DevOps
 export NVM_DIR="/home/tcharon/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
