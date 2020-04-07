@@ -1,6 +1,6 @@
 [user]
-  name = Tanguy Charon
-  email = tcharon@arkoon.dev
+  name = Yagora
+  email = tanguy.charon47@gmail.com
 	signingkey = 881422CB
 
 [core]
@@ -15,7 +15,7 @@
   pure = pull --stat --log
   # log with graph
   lg = log --graph --pretty=format:'%Cred%h%Creset %Cgreen(%ci)%Creset %s %C(bold blue)<%an>%Creset%C(yellow)%d%Creset'
-  # short log 
+  # short log
   l = log --pretty=format:'%Cred%h%Creset %Cgreen(%ci)%Creset %s %C(blue)<%an>%C(yellow)%d%Creset'
   # lga = lg --all | la = l --all
   lga = log --graph --pretty=format:'%Cred%h%Creset %Cgreen(%ci)%Creset %s %C(bold blue)<%an>%Creset%C(yellow)%d' --all
