@@ -57,6 +57,8 @@ fi
 
 source ~/.zgen/zgen.zsh
 source ~/.bashrc
+source ~/.fonts/*.sh
+
 if ! zgen saved; then
     # zgen will load oh-my-zsh and download it if required
     zgen oh-my-zsh
@@ -96,12 +98,17 @@ fi
 # additional configuration for zsh
 # Remove the history (fc -l) command from the history list when invoked.
 setopt histnostore
+
 # Remove superfluous blanks from each command line being added to the history list.
 setopt histreduceblanks
 unsetopt share_history
+
+# Kube autocompletion
+source <(kubectl completion zsh)
+fpath=($fpath "/home/tanguy/.zfunctions")
+
 # Remove auto correction
 unsetopt correct_all
 export PATH=$PATH:/home/$USER/.local/bin/
-export AWS_PROFILE=271755284775_DCP_DevOps
-export NVM_DIR="/home/tcharon/.nvm"
+source /home/$USER/.local/bin/aws_zsh_completer.sh
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
