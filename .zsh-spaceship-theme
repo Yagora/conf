@@ -1,0 +1,82 @@
+export ZSH="/home/tanguy/.oh-my-zsh"
+export ZSH_THEME="spaceship"
+SPACESHIP_PROMPT_ADD_NEWLINE="false"
+export HISTSIZE=32768
+export HISTFILESIZE=$HISTSIZE
+export PAGER=less
+export TERM=xterm-256color
+
+
+HYPHEN_INSENSITIVE="true"
+ENABLE_CORRECTION="true"
+COMPLETION_WAITING_DOTS="true"
+
+#alias
+alias more='less'
+alias ls='ls --color=auto'
+alias lla='ls -l -a --color=auto'
+alias nslookup='nslookup -sil'
+alias tf='tail -f'
+alias grep="grep --color=auto --exclude-dir '.svn' --exclude-dir '.git'"
+ZSH_DISABLE_COMPFIX="true"
+source $ZSH/oh-my-zsh.sh
+
+export LANG=en_US.UTF-8
+
+#ZGEN
+ZGEN_AUTOLOAD_COMPINIT=true
+# If user is root it can have some issues with access to competition files
+if [[ "${USER}" == "root" ]]; then
+    ZGEN_AUTOLOAD_COMPINIT=false
+fi
+
+source "${HOME}/.zgen/zgen.zsh"
+
+if ! zgen saved; then
+
+    # list of plugins from zsh I use
+    # see https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins
+    zgen oh-my-zsh plugins/git
+    zgen oh-my-zsh plugins/kubectl
+    zgen oh-my-zsh plugins/npm
+    zgen oh-my-zsh plugins/sudo
+    zgen oh-my-zsh plugins/man
+    zgen oh-my-zsh plugins/grunt
+    zgen oh-my-zsh plugins/nvm
+    zgen oh-my-zsh plugins/debian
+    zgen oh-my-zsh plugins/grunt
+
+    zgen load denysdovhan/spaceship-prompt spaceship
+
+    # https://github.com/zsh-users/zsh-completions
+    zgen load zsh-users/zsh-completions src
+
+    zgen load zsh-users/zsh-syntax-highlighting
+
+    zgen load zsh-users/zsh-history-substring-search
+
+    # load https://github.com/bhilburn/powerlevel9k theme for zsh
+    #zgen load bhilburn/powerlevel9k powerlevel9k.zsh-theme
+
+    zgen save
+fi
+autoload -U compinit && compinit
+# Kube autocompletion
+autoload -U +X compinit && compinit
+source <(kubectl completion zsh)
+fpath=($fpath "/home/tanguy/.zfunctions")
+
+export PATH=$PATH:/home/$USER/.local/bin/
+source /home/$USER/.local/bin/aws_zsh_completer.sh
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+
+
+
+source ~/.bashrc
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/tanguy/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
