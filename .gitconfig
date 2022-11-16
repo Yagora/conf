@@ -1,7 +1,7 @@
 [user]
   name = Yagora
   email = tanguy.charon47@gmail.com
-	signingkey = 881422CB
+  signingkey = 881422CB
 
 [core]
   editor = vim
@@ -9,7 +9,7 @@
 [alias]
   co = checkout
   ci = commit
-  br = branch
+  br = for-each-ref --sort='authordate:iso8601' --format='%(color:green)%(authordate:relative)%09%(color:red)%(refname:short) %(color:white)/ %(color:blue)%(contents:subject)' refs/heads
   st = status
   a  = add
   pure = pull --stat --log
